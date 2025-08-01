@@ -38,5 +38,6 @@ for (const key in data) {
   points.push({ x, y });
   if (points.length === k) break;
 }
-const constant = findConst(selected);
-console.log(constant.toString());
+// console.log(points)
+const constant = findConst(points);
+console.log("c = ", constant.toString());
