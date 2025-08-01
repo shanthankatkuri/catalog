@@ -22,6 +22,7 @@ function findConst(points) {
         denominator *= points[i].x - points[j].x
       }
     }
+    // result += term;
     result += numerator / denominator;
   }
   return result;
