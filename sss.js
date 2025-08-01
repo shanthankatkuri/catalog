@@ -12,14 +12,17 @@ function findConst(points) {
   const k = points.length;
   let result = 0n;
   for (let i = 0; i < k; i++) {
-    let term = points[i].y;
+    let numerator = points[i].y;
+    let denominator = 1n;
     for (let j = 0; j < k; j++) {
       if (i !== j) {
-        term *= -points[j].x;
-        term /= points[i].x - points[j].x;
+        // term *= -points[j].x;
+        // term /= points[i].x - points[j].x; old code
+        numerator *= -points[j].x;
+        denominator *= points[i].x - points[j].x
       }
     }
-    result += term;
+    result += numerator / denominator;
   }
   return result;
 }
@@ -38,6 +41,6 @@ for (const key in data) {
   points.push({ x, y });
   if (points.length === k) break;
 }
-// console.log(points)
+console.log(points)
 const constant = findConst(points);
 console.log("c = ", constant.toString());
